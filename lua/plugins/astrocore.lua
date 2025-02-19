@@ -37,6 +37,29 @@ return {
         -- configure global vim variables (vim.g)
         -- NOTE: `mapleader` and `maplocalleader` must be set in the AstroNvim opts or before `lazy.setup`
         -- This can be found in the `lua/lazy_setup.lua` file
+        autoformat_enabled = true, -- enable or disable auto formatting at start (lsp.formatting.format_on_save must be enabled)
+        cmp_enabled = true, -- enable completion at start
+        autopairs_enabled = true, -- enable autopairs at start
+        diagnostics_mode = 3, -- set the visibility of diagnostics in the UI (0=off, 1=only show in status line, 2=virtual text off, 3=all on)
+        icons_enabled = true, -- disable icons in the UI (disable if no nerd font is available, requires :PackerSync after changing)
+        ui_notifications_enabled = true, -- disable notifications when toggling UI elements
+        vimwiki_global_ext = 0,
+        vimwiki_list = {
+          {
+            path = "~/vimwiki",
+            template_path = "~/vimwiki/templates/",
+            template_default = "default",
+            syntax = "markdown",
+            ext = ".md",
+            path_html = "~/vimwiki/site_html/",
+            custom_wiki2html = "vimwiki_markdown",
+            html_filename_parameterization = 1,
+            template_ext = ".tpl",
+          },
+        },
+        firenvim_config = { localSettings = { [".*"] = { takeover = "never" } } },
+        user_emmet_leader_key = "<C-z>",
+        user_emmet_install_global = 1,
       },
     },
     -- Mappings can be configured through AstroCore as well.
