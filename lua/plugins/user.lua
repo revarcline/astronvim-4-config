@@ -1,4 +1,3 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 -- You can also add or configure plugins by creating files in this `plugins/` folder
 -- Here are some examples:
@@ -23,17 +22,11 @@ return {
     opts = function(_, opts)
       -- customize the dashboard header
       opts.section.header.val = {
-        " █████  ███████ ████████ ██████   ██████",
-        "██   ██ ██         ██    ██   ██ ██    ██",
-        "███████ ███████    ██    ██████  ██    ██",
-        "██   ██      ██    ██    ██   ██ ██    ██",
-        "██   ██ ███████    ██    ██   ██  ██████",
-        " ",
-        "    ███    ██ ██    ██ ██ ███    ███",
-        "    ████   ██ ██    ██ ██ ████  ████",
-        "    ██ ██  ██ ██    ██ ██ ██ ████ ██",
-        "    ██  ██ ██  ██  ██  ██ ██  ██  ██",
-        "    ██   ████   ████   ██ ██      ██",
+        "╳╳╳    ╳╳ ╳╳    ╳╳ ╳╳ ╳╳╳    ╳╳╳",
+        "╳╳╳╳   ╳╳ ╳╳    ╳╳ ╳╳ ╳╳╳╳  ╳╳╳╳",
+        "╳╳ ╳╳  ╳╳ ╳╳    ╳╳ ╳╳ ╳╳ ╳╳╳╳ ╳╳",
+        "╳╳  ╳╳ ╳╳  ╳╳  ╳╳  ╳╳ ╳╳  ╳╳  ╳╳",
+        "╳╳   ╳╳╳╳   ╳╳╳╳   ╳╳ ╳╳      ╳╳",
       }
       return opts
     end,
@@ -53,6 +46,32 @@ return {
     end,
   },
 
+  { "glacambre/firenvim", run = function() vim.fn["firenvim#install"](0) end },
+  {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup {
+        -- Configuration here, or leave empty to use defaults
+      }
+    end,
+  },
+  "tpope/vim-repeat",
+  { "vimwiki/vimwiki", lazy = false },
+  { "mattn/emmet-vim", lazy = false },
+  { "revarcline/vim-tmux-yank", lazy = false },
+  { "mg979/vim-visual-multi", lazy = false },
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    filesystem = {
+      filtered_items = {
+        visible = true, -- This is what you want: If you set this to `true`, all "hide" just mean "dimmed out"
+        hide_dotfiles = false,
+        hide_gitignored = true,
+      },
+    },
+  },
   {
     "windwp/nvim-autopairs",
     config = function(plugin, opts)
@@ -82,4 +101,5 @@ return {
       )
     end,
   },
+
 }

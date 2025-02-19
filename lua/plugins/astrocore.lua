@@ -60,6 +60,30 @@ return {
           desc = "Close buffer from tabline",
         },
 
+        ["<C-s>"] = { ":w!<cr>", desc = "Save File" }, -- change description but the same command
+        -- ["<leader>w"] = false,
+        ["<leader>j"] = { "J", desc = "Merge line up", noremap = true },
+        ["<S-h>"] = { "^" },
+        ["<S-l>"] = { "$" },
+        ["<S-j>"] = { "5j" },
+        ["<S-k>"] = { "5k" },
+        ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
+        ["<leader>bD"] = {
+          function()
+            require("astronvim.utils.status").heirline.buffer_picker(
+              function(bufnr) require("astronvim.utils.buffer").close(bufnr) end
+            )
+          end,
+          desc = "Pick to close",
+        },
+        -- add newlines above and below
+        ["[<Space>"] = { "<cmd>put! =repeat(nr2char(10), v:count1)|silent ']+<cr>" },
+        ["]<Space>"] = { "<cmd>put =repeat(nr2char(10), v:count1)|silent '[-<cr>" },
+        -- tables with the `name` key will be registered with which-key if it's installed
+        -- this is useful for naming menus
+        ["<leader>b"] = { name = "Buffers" },
+        -- quick save
+        -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
         -- tables with just a `desc` key will be registered with which-key if it's installed
         -- this is useful for naming menus
         -- ["<Leader>b"] = { desc = "Buffers" },
