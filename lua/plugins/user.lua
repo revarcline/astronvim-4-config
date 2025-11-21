@@ -103,6 +103,20 @@ return {
   {
     "coder/claudecode.nvim",
     dependencies = { "folke/snacks.nvim" },
+    opts = {
+      terminal = {
+        snacks_win_opts = {
+          position = "bottom", -- Position of the window: "bottom", "top", "left", "right", "float"
+          width = 0.3, -- Width for vertical splits (percentage)
+          height = 0.3, -- Height for horizontal splits (percentage)
+        },
+      },
+      diff_opts = {
+        auto_close_on_accept = true,
+        vertical_split = true,
+        keep_terminal_focus = true, -- If true, moves focus back to terminal after diff opens
+      },
+    },
     config = true,
     keys = {
       { "<leader>a", nil, desc = "AI/Claude Code" },
